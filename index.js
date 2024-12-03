@@ -1,7 +1,9 @@
 const { agregarViaje, obtenerViajes } = require("./consultas");
 const express = require("express");
+const cors = require("cors");
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.get("/viajes", async (req, res) => {
   const viajes = await obtenerViajes();
   res.json(viajes);
